@@ -12,7 +12,7 @@ const encounterLevel = {
 const easyEncounterQuotes = [
     "Ésperons que ce soit une partie de plaisir 😁",
     "Quelques bruits bizzare se font entendre au loin... 🔊",
-    "Ce sera une balade de santé pour nos aventuriers 🚶‍♀️🚶‍♂️"
+    "Ce sera une balade de santé pour nos aventuriers 🚶‍"
 ]
 
 const mediumEncounterQuotes = [

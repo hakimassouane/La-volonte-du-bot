@@ -6,6 +6,8 @@ import malusAttaque from './Rewards/malusAttaque';
 import malusArmure from './Rewards/malusArmure';
 import malusStat from './Rewards/malusStat';
 import pieceOr from './Rewards/pieceOr';
+import rollTable from './Rewards/rollTable';
+import pointDeChance from './Rewards/pointDeChance';
 
 const rewardMap = {};
 rewardMap["Attaque d'ennemies"] = attaqueEnnemies;
@@ -16,6 +18,9 @@ rewardMap["Malus d'attaque (01H00)"] = malusAttaque;
 rewardMap["Malus d'armure (01H00)"] = malusArmure;
 rewardMap["Malus de stat (01H00)"] = malusStat;
 rewardMap["Trouvaille de pièce d'or"] = pieceOr;
+rewardMap["Larcin"] = pieceOr;
+rewardMap["Magie sauvage"] = rollTable;
+rewardMap["Rencontre aléatoire"] = rollTable;
+rewardMap["Points de chance"] = pointDeChance;
 
 export default rewardMap;
-

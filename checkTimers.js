@@ -15,6 +15,7 @@ function checkTimers (chatClient, fromInterval) {
     if (messageCounter >= 1 && elapsedTime >= 5) {
         listOfTexts[Math.floor(Math.random() * listOfTexts.length)](chatClient);
         messageCounter = 0;
+        lastTimeStamp = new Date();
     } else if (fromInterval === false) {
         messageCounter++;
     }
