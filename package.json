@@ -1,0 +1,25 @@
+{
+  "name": "twitch_bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon -r esm ./index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chance": "^1.1.4",
+    "chance.js": "0.0.1",
+    "esm": "^3.2.25",
+    "express": "^4.17.1",
+    "fs-extra": "^9.0.0",
+    "node-notifier": "^7.0.0",
+    "nodemon": "^2.0.3",
+    "roll": "^1.2.0",
+    "twitch": "^4.0.9",
+    "twitch-chat-client": "^4.0.9",
+    "twitch-pubsub-client": "^4.0.9"
+  }
+}
