@@ -8,6 +8,8 @@ import malusStat from './Rewards/malusStat';
 import pieceOr from './Rewards/pieceOr';
 import rollTable from './Rewards/rollTable';
 import pointDeChance from './Rewards/pointDeChance';
+import barriere from './Rewards/barriere';
+import chaudronMagique from './Rewards/chaudronMagique';
 
 const rewardMap = {};
 rewardMap["Attaque d'ennemies"] = attaqueEnnemies;
@@ -22,5 +24,7 @@ rewardMap["Larcin"] = pieceOr;
 rewardMap["Magie sauvage"] = rollTable;
 rewardMap["Rencontre aléatoire"] = rollTable;
 rewardMap["Points de chance"] = pointDeChance;
+rewardMap["Barrière (01H00)"] = barriere;
+rewardMap["Chaudron magique"] = chaudronMagique;
 
 export default rewardMap;
