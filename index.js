@@ -15,6 +15,8 @@ const clientId = '41za9jrequh4p20ge9sy1mhg8v5hni';
 const clientSecret = 'ljednk1b0j7fys781z1zicom759q0r';
 const channel = "lavolontedude"
 
+process.title = "La volonte du bot"
+
 app.listen(3000, async () => {
     console.log("Listening on port 3000");
 
