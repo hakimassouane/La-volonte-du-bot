@@ -4,19 +4,26 @@ import fs from 'fs';
 
 const saveDataMap = new Map();
 
+
 function sendNotifications(redemption, message) {
     const userRedeeming = redemption.user.display_name;
     const rewardTitle = redemption.reward.title;
     const rewardIconPath = path.join(__dirname, `../Rewards/Icons/${rewardTitle}.png`)
-    console.log(saveDataMap[rewardTitle]);
-    if (saveDataMap[rewardTitle]) {
-        saveDataMap[rewardTitle] = 0;
+
+    if (!saveDataMap.get(rewardTitle)) {
+        saveDataMap.set(rewardTitle, 1);
     } else {
-        console.log('hello')
-        saveDataMap[rewardTitle] += 1;
+        saveDataMap.set(rewardTitle, (saveDataMap.get(rewardTitle) + 1));
     }
 
-    console.log(saveDataMap);
+    const file = fs.createWriteStream('../../Downloads/D&D/Stream ressources/Twitch/Channel points/Last session redeemed reward.txt');
+    file.on('error', function(err) {
+        console.err(`Error while writing file saveDataMap : ${err}`)
+    });
+    saveDataMap.forEach(function(element, index) { 
+        file.write(`${index} => ${element}\n`); 
+    });
+    file.end();
 
     notifier.notify({
         icon: fs.existsSync(rewardIconPath) ? rewardIconPath : path.join(__dirname, `../Rewards/Icons/defaultIcon.png`),
