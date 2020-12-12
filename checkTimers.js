@@ -1,4 +1,4 @@
-import aide from './chatCommands/aide'
+import help from './chatCommands/help'
 import campagne from './chatCommands/campagne'
 import discord from './chatCommands/socials/discord'
 import donation from './chatCommands/donation'
@@ -6,7 +6,7 @@ import instagram from './chatCommands/socials/instagram'
 import pointsdechaine from './chatCommands/pointsdechaine'
 import youtube from './chatCommands/socials/youtube'
 
-const listOfTexts = [aide, discord, donation, instagram, campagne, pointsdechaine, youtube];
+const listOfTexts = [help, discord, donation, instagram, campagne, pointsdechaine, youtube];
 let messageCounter = 0;
 let lastTimeStamp = new Date();
 
