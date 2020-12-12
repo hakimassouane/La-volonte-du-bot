@@ -1,30 +1,53 @@
+import armorBonus from './Rewards/armorBonus';
+import armorPenalty from './Rewards/armorPenalty';
+import attackBonus from './Rewards/attackBonus';
+import attackPenalty from './Rewards/attackPenalty';
 import attaqueEnnemies from './Rewards/attaqueEnnemies';
+import barrier from './Rewards/barrier';
+import barriere from './Rewards/barriere';
 import bonusArmure from './Rewards/bonusArmure';
 import bonusAttaque from './Rewards/bonusAttaque';
 import bonusStat from './Rewards/bonusStat';
-import malusAttaque from './Rewards/malusAttaque';
+import chaudronMagique from './Rewards/chaudronMagique';
+import luckPoints from './Rewards/luckPoints';
 import malusArmure from './Rewards/malusArmure';
+import malusAttaque from './Rewards/malusAttaque';
 import malusStat from './Rewards/malusStat';
 import pieceOr from './Rewards/pieceOr';
-import rollTable from './Rewards/rollTable';
 import pointDeChance from './Rewards/pointDeChance';
-import barriere from './Rewards/barriere';
-import chaudronMagique from './Rewards/chaudronMagique';
+import rollTable from './Rewards/rollTable';
+import rollTableEng from './Rewards/rollTableEng'
+import statBonus from './Rewards/statBonus';
+import statPenalty from './Rewards/statPenalty';
 
 const rewardMap = {};
+
+// Liste Française
+
 rewardMap["Attaque d'ennemies"] = attaqueEnnemies;
-rewardMap["Bonus d'attaque (01H00)"] = bonusAttaque;
-rewardMap["Bonus d'armure (01H00)"] = bonusArmure;
-rewardMap["Bonus de stat (01H00)"] = bonusStat;
-rewardMap["Malus d'attaque (01H00)"] = malusAttaque;
-rewardMap["Malus d'armure (01H00)"] = malusArmure;
-rewardMap["Malus de stat (01H00)"] = malusStat;
-rewardMap["Trouvaille de pièce d'or"] = pieceOr;
+rewardMap["Barrière"] = barriere;
+rewardMap["Bonus d'armure"] = bonusArmure;
+rewardMap["Bonus d'attaque"] = bonusAttaque;
+rewardMap["Bonus de stat"] = bonusStat;
+rewardMap["Chaudron magique"] = chaudronMagique;
 rewardMap["Larcin"] = pieceOr;
 rewardMap["Magie sauvage"] = rollTable;
-rewardMap["Rencontre aléatoire"] = rollTable;
+rewardMap["Malus d'armure"] = malusArmure;
+rewardMap["Malus d'attaque"] = malusAttaque;
+rewardMap["Malus de stat"] = malusStat;
 rewardMap["Points de chance"] = pointDeChance;
-rewardMap["Barrière (01H00)"] = barriere;
-rewardMap["Chaudron magique"] = chaudronMagique;
+rewardMap["Rencontre aléatoire"] = rollTable;
+rewardMap["Trouvaille de pièce d'or"] = pieceOr;
+
+// Liste Anglaise
+rewardMap["AC penalty (01H00)"] = armorPenalty;
+rewardMap["Attack bonus (01H00)"] = attackBonus;
+rewardMap["Attack penalty (01H00)"] = attackPenalty;
+rewardMap["Barrier (01H00)"] = barrier;
+rewardMap["Bonus AC (01H00)"] = armorBonus;
+rewardMap["Luck points"] = luckPoints;
+rewardMap["Stat bonus (01H00)"] = statBonus;
+rewardMap["Stat penalty (01H00)"] = statPenalty;
+rewardMap["Wild magic"] = rollTableEng;
 
 export default rewardMap;

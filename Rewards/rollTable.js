@@ -1,5 +1,5 @@
-import sendNotifications from '../Utils/sendNotifications';
 import sendMsgToChat from '../Utils/sendMsgToChat';
+import sendNotifications from '../Utils/sendNotifications';
 
 function rollTable(chatClient, redemption) {
     const userRedeeming = redemption.user.display_name;

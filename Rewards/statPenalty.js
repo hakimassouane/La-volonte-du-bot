@@ -3,25 +3,25 @@ import sendNotifications from '../Utils/sendNotifications';
 import weightedRandomDistrib from '../Utils/weightedRandomDistrib';
 
 const statArray = [
-  'de Force 💪',
-  'de Déxtérité 🏃💨',
-  'de Constitution 💖',
-  "d'Intelligence 🧠",
-  'de Sagesse 🧐',
-  'de Charisme 😎'
+  'Strength 💪',
+  'Dexterity 🏃💨',
+  'Constitution 💖',
+  'intelligence 🧠',
+  'Wisdom 🧐',
+  'Charisma 😎'
 ]
 
-function malusStat(chatClient, redemption) {
+function statPenalty(chatClient, redemption) {
     const userRedeeming = redemption.user.display_name;
     const userReceiving = redemption.user_input;
     const diceRoll = weightedRandomDistrib(1,4,1,3);
     const statRoll = statArray[Math.floor(Math.random() * statArray.length)]
 
-    const chatMessage = `@${userRedeeming} vient d'appliquer un malus ${statRoll} -${diceRoll} à ${userReceiving} !`
-    const notifyMessage = `-${diceRoll} ${statRoll} pour ${userReceiving}`;
+    const chatMessage = `@${userRedeeming} just applied a -${diceRoll} ${statRoll} penalty to ${userReceiving} !`
+    const notifyMessage = `-${diceRoll} ${statRoll} for ${userReceiving}`;
     
     sendMsgToChat(chatClient, chatMessage);
     sendNotifications(redemption, notifyMessage);
 }
 
-export default malusStat
+export default statPenalty

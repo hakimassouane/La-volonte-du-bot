@@ -1,5 +1,5 @@
 function donation(chatClient) {
-    chatClient.say("lavolontedude", `💲 ​Si vous voulez soutenir la chaîne pour permettre le financement de matériels / outils / projets c'est juste ici : https://streamlabs.com/lavolontedude/tip`);
+    chatClient.say("lavolontedude", `💲 ​Si tu veux soutenir la chaîne c'est juste ici, eh merce ! : https://streamlabs.com/lavolontedude/tip`);
 }
 
 export default donation

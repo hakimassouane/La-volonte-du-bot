@@ -1,11 +1,11 @@
-import TwitchClient from 'twitch';
+import * as fs from 'fs-extra';
 import ChatClient from 'twitch-chat-client';
 import PubSubClient from 'twitch-pubsub-client';
-import * as fs from 'fs-extra';
-import rewardMap from './rewardMap';
-import commandMap from './commandMap';
+import TwitchClient from 'twitch';
 import checkTimers from './checkTimers';
+import commandMap from './commandMap';
 import genericNotifications from './Utils/genericNotifications';
+import rewardMap from './rewardMap';
 
 const pubSubClient = new PubSubClient();
 const express = require('express')
@@ -18,7 +18,7 @@ const channel = "lavolontedude"
 process.title = "La volonte du bot"
 
 app.listen(3000, async () => {
-    console.log("Listening on port 3000");
+    console.log("Le bot est lancé sur le port 3000");
 
     const tokenData = JSON.parse(await fs.readFile('./tokens.json'));
     const twitchClient = TwitchClient.withCredentials(clientId, tokenData.accessToken, undefined, {
@@ -34,7 +34,7 @@ app.listen(3000, async () => {
             await fs.writeFile('./tokens.json', JSON.stringify(newTokenData, null, 4), 'UTF-8')
         }
     });
-
+    
     const chatClient = await ChatClient.forTwitchClient(twitchClient, {channels: [channel]});
     const { id } = await twitchClient.helix.users.getUserByName(channel);
 
@@ -43,7 +43,9 @@ app.listen(3000, async () => {
     
     // Event PubSub de reward
     pubSubClient.onRedemption(id, message => {
+
         let rewardTitle = message._data.data.redemption.reward.title;
+        console.log(`La reward ${rewardTitle} vient d'être récupérée`);
         if (rewardMap[rewardTitle]) {
             rewardMap[rewardTitle](chatClient, message._data.data.redemption);
         } else {
@@ -58,7 +60,7 @@ app.listen(3000, async () => {
             if (commandMap[message.toLowerCase()]) { 
                 commandMap[message.toLowerCase()](chatClient, user, message);
             } else {
-                chatClient.say(channel, `Désolé @${user} cette commande n'existe pas 😭`);
+                chatClient.say(channel, `Désolé @${user} cette commande n'existe pas 😭 Utilise la commande !cmd pour obtenir la liste des commandes disponibles`);
             }
         } else {
             checkTimers(chatClient, false);

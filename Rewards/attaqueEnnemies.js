@@ -1,6 +1,6 @@
-import weightedRandomDistrib from '../Utils/weightedRandomDistrib';
-import sendNotifications from '../Utils/sendNotifications';
 import sendMsgToChat from '../Utils/sendMsgToChat';
+import sendNotifications from '../Utils/sendNotifications';
+import weightedRandomDistrib from '../Utils/weightedRandomDistrib';
 
 const encounterLevel = {
     1: 'Facile',
@@ -41,7 +41,7 @@ const encounterQuotes = {
 }
 
 function attaqueEnnemies(chatClient, redemption) {
-    const diceRoll = weightedRandomDistrib(1,5,1,3);
+    const diceRoll = weightedRandomDistrib(1,5,2,5);
     const encounterLvlPicked = encounterLevel[diceRoll];
     const targetArray = encounterQuotes[encounterLvlPicked];
     const randomQuote = targetArray[Math.floor(Math.random() * targetArray.length)];

@@ -1,5 +1,5 @@
-import sendNotifications from '../Utils/sendNotifications';
 import sendMsgToChat from '../Utils/sendMsgToChat';
+import sendNotifications from '../Utils/sendNotifications';
 import weightedRandomDistrib from '../Utils/weightedRandomDistrib';
 
 const potionTable = [
@@ -148,11 +148,11 @@ function chaudronMagique(chatClient, redemption) {
     let notifyMessage = '';
 
     if (diceRollTable === 1) {
-        potionRoll = weightedRandomDistrib(0,potionTable.length,0,1);
+        potionRoll = weightedRandomDistrib(0,potionTable.length,potionTable.length/2,10);
         chatMessage = `@${userRedeeming} a laissé s'échapper une ${potionTable[potionRoll]} du chaudron magique, qui se déverse ${playerAffected} 🧪`
         notifyMessage = `🎲 ${potionTable[potionRoll]} ${playerAffected}`;
     } else {
-        potionRoll = weightedRandomDistrib(0,poisonTable.length,0,1);
+        potionRoll = weightedRandomDistrib(0,poisonTable.length,poisonTable.length/2,10);
         chatMessage = `@${userRedeeming} a laissé s'échapper ${poisonTable[potionRoll]} du chaudron magique, qui se déverse ${playerAffected} 🧪`
         notifyMessage = `🎲 ${poisonTable[potionRoll]} ${playerAffected}`;
     }

@@ -1,10 +1,12 @@
-import instagram from './chatCommands/socials/instagram'
-import youtube from './chatCommands/socials/instagram'
-import donation from './chatCommands/donation'
+import aide from './chatCommands/aide'
 import campagne from './chatCommands/campagne'
+import discord from './chatCommands/socials/discord'
+import donation from './chatCommands/donation'
+import instagram from './chatCommands/socials/instagram'
 import pointsdechaine from './chatCommands/pointsdechaine'
+import youtube from './chatCommands/socials/youtube'
 
-const listOfTexts = [instagram, youtube, donation, campagne, pointsdechaine];
+const listOfTexts = [aide, discord, donation, instagram, campagne, pointsdechaine, youtube];
 let messageCounter = 0;
 let lastTimeStamp = new Date();
 
@@ -12,7 +14,7 @@ function checkTimers (chatClient, fromInterval) {
     const timeDiff = Math.abs(new Date() - lastTimeStamp);
     const elapsedTime = Math.floor((timeDiff/1000)/60);
 
-    if (messageCounter >= 1 && elapsedTime >= 5) {
+    if (messageCounter >= 3 && elapsedTime >= 10) {
         listOfTexts[Math.floor(Math.random() * listOfTexts.length)](chatClient);
         messageCounter = 0;
         lastTimeStamp = new Date();

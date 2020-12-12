@@ -1,6 +1,6 @@
-import weightedRandomDistrib from '../Utils/weightedRandomDistrib';
-import sendNotifications from '../Utils/sendNotifications';
 import sendMsgToChat from '../Utils/sendMsgToChat';
+import sendNotifications from '../Utils/sendNotifications';
+import weightedRandomDistrib from '../Utils/weightedRandomDistrib';
 
 function malusArmure(chatClient, redemption) {
     const userRedeeming = redemption.user.display_name;
