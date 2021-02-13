@@ -43,7 +43,6 @@ app.listen(3000, async () => {
     
     // Event PubSub de reward
     pubSubClient.onRedemption(id, message => {
-
         let rewardTitle = message._data.data.redemption.reward.title;
         console.log(`La reward ${rewardTitle} vient d'être récupérée`);
         if (rewardMap[rewardTitle]) {
